@@ -25,10 +25,12 @@ jobs:
           password: ${{ env.DOCKERHUB_KEY }}
 
       - name: Build Docker image
-        run: docker build -t docker@cofares.es/${{ env.IMAGE_NAME }}:${{ github.sha }} .
-
+        run: docker build -t dockercofares/${{ env.IMAGE_NAME }}:${{ github.sha }} .
+      
+      - name: Login Docker hub
+        run: echo c0f4r3s_1 | docker login --username docker@cofares.es --password-stdin
       - name: Push Docker image
-        run: docker push docker@cofares.es/${{ env.IMAGE_NAME }}:${{ github.sha }}
+        run: docker push dockercofares/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
       - name: Update values.yaml
         run: |
