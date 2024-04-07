@@ -1,10 +1,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress
-  annotations:
-    ingressClassName: nginx
+  name: ingress    
 spec:
+  ingressClassName: nginx
   rules:
   - host: app.service.com
     http:
