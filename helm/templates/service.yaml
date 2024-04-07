@@ -4,8 +4,7 @@ metadata:
   name: app-service
   labels:
     app: app
-spec:
-    type: NodePort
+spec:    
     selector:
         app: app
     ports:
